@@ -1,4 +1,8 @@
 
+@font-face {
+    font-family: pokemon;
+    src: url('../assets/Pokemon\ Solid.ttf');
+}
 body {
     /* https://coolors.co/generate and click export -> scss to get the colors to copy and paste below*/
     --color1: hsla(349, 69%, 76%, 1);
@@ -43,9 +47,16 @@ input+ img {
 }
 
 h1 {
+    font-family: pokemon;
     font-size: 24pt;
 }
 
+h2 {
+    font-family: pokemon;
+    font-size: 12pt;
+    /* font-weight: bold; */
+    padding-left: 25px;
+}
 table {
     border: none;
     border-collapse: collapse;
@@ -71,3 +82,8 @@ tbody tr:nth-child(even) {
     align-items: center;
     justify-content: space-evenly;
 }
+
+#chart {
+    width:500px;
+    height: 500px;
+  }

@@ -37,3 +37,26 @@ export function loadGameData() {
     return parsedData;
 }
 
+export function mungeData(arr, item) {
+    // const namesArray = [];
+    // const caughtArray = [];
+    // const encounteredArray = [];
+    
+    const returnArray = [];
+    arr.forEach(pokemon => {
+        let returnItem = null;
+        switch (item) {
+            case 'name' :
+                returnItem = findById(pokemon._id, pokedex).pokemon;
+                break;
+            case 'encountered' :
+                returnItem = pokemon.encounters;
+                break;
+            case 'caught' :
+                returnItem = pokemon.caught;
+                break;
+        }
+        returnArray.push(returnItem);
+    });
+    return returnArray;
+}

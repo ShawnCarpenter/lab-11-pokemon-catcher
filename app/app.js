@@ -1,5 +1,6 @@
 // import functions and grab DOM elements
 import { generateGroup, findById, saveGameData } from './utils.js';
+import pokedex from '../data/pokemon.js';
 const gamesPlayed = document.getElementById('games');
 
 // initialize state
@@ -26,16 +27,20 @@ function populateGameBoard() {
     const round = generateGroup();
 
     for (let i = 0; i < round.length; i++){
-        const pokemonID = round[i]._id;
-        hasEncountered(pokemonID);
-        const caughtCount = findById(pokemonID, encounteredPokemon).caught;
-        const encounteredCount = findById(pokemonID, encounteredPokemon).encounters;
+        const pokemonId = round[i]._id;
+        const pokemonObj = findById(pokemonId, pokedex);
+        hasEncountered(pokemonId);
+        const caughtCount = findById(pokemonId, encounteredPokemon).caught;
+        const encounteredCount = findById(pokemonId, encounteredPokemon).encounters;
+        const pokemonName = pokemonObj.pokemon;
         const labelEl = document.createElement('label');
+        const nameEl = document.createElement('h2');
         const inputEl = document.createElement('input');
         const imgEl = document.createElement('img');
         const encounteredEl = document.createElement('div');
         const caughtEl = document.createElement('div');
         
+        nameEl.textContent = pokemonName;
         encounteredEl.textContent = `Encountered ${encounteredCount} times`;
         caughtEl.textContent = `Caught ${caughtCount} times`;
         inputEl.type = 'radio';
@@ -47,7 +52,7 @@ function populateGameBoard() {
             populateGameBoard();
         });
         imgEl.src = round[i].url_image;
-        labelEl.append(inputEl, imgEl, encounteredEl, caughtEl);
+        labelEl.append(nameEl, inputEl, imgEl, encounteredEl, caughtEl);
         
         gameBoard.appendChild(labelEl); 
     }
