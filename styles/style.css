@@ -19,5 +19,29 @@ body {
     --footer-height: 25px;
     
     font-family: 'Titillium Web', sans-serif;
-    background-color: var(--color2);
+    background-color: var(--color5);
+}
+header {
+    width: 100%;
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+#game-board {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+  
+}
+input {
+    display: none;
+}
+input+ img {
+    border: 2px solid orange;
+    max-width: 275px;
+}
+
+h1 {
+    font-size: 24pt;
 }
