@@ -6,6 +6,8 @@ const ctx = document.getElementById('chart').getContext('2d');
 const names = mungeData(results, 'name');
 const catchData = mungeData(results, 'caught');
 const encounterData = mungeData(results, 'encountered');
+const colorData_1 = mungeData(results, 'color_1');
+const colorData_2 = mungeData(results, 'color_2');
 
 
 function buildTables() {
@@ -53,12 +55,12 @@ const myChart = new Chart(ctx, { //eslint-disable-line
             {
                 label: 'Times Caught',
                 data: catchData,
-                backgroundColor: 'red'
+                backgroundColor: colorData_1
             },
             {
                 label: 'Times Encountered',
                 data: encounterData,
-                backgroundColor: 'blue'
+                backgroundColor: colorData_2
             }
         ]
     },

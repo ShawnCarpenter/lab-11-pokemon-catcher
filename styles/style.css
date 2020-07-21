@@ -83,7 +83,11 @@ tbody tr:nth-child(even) {
     justify-content: space-evenly;
 }
 
-#chart {
+/* #chart {
     width:500px;
     height: 500px;
-  }
+  } */
+
+.chart-container {
+    transform: scale(.75);
+}
