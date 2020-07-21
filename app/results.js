@@ -1,7 +1,7 @@
 import { loadGameData, findById } from './utils.js';
 import pokedex from '../data/pokemon.js';
 const results = loadGameData();
-
+const resetButton = document.getElementById('reset-button');
 
 function buildTables() {
     const caughtTable = document.getElementById('caught');
@@ -30,3 +30,7 @@ function buildTables() {
 }
 
 buildTables();
+
+resetButton.addEventListener('click', ()=> {
+    window.location = 'index.html';
+});

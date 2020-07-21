@@ -1,26 +1,30 @@
 // import functions and grab DOM elements
 import { generateGroup, findById, saveGameData } from './utils.js';
-
 const gamesPlayed = document.getElementById('games');
 
 // initialize state
 let count = 0;
 let encounteredPokemon = [];
+
 // set event listeners to update state and DOM
 
 populateGameBoard();
+
 function populateGameBoard() {
     if (count >= 10) {
         saveGameData(encounteredPokemon);
         window.location = 'results.html';
     }
+    
+    gamesPlayed.textContent = `You have caught ${count} Pokemon so far`;
     count++;
-    gamesPlayed.textContent = `You are on round ${count} of 10`;
+
     const gameBoard = document.getElementById('game-board');
     while (gameBoard.firstChild) {
         gameBoard.removeChild(gameBoard.firstChild);
     }
     const round = generateGroup();
+
     for (let i = 0; i < round.length; i++){
         const pokemonID = round[i]._id;
         hasEncountered(pokemonID);
