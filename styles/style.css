@@ -46,6 +46,11 @@ h1 {
     font-size: 24pt;
 }
 
+h2 {
+    font-size: 18pt;
+    font-weight: bold;
+    padding-left: 10px;
+}
 table {
     border: none;
     border-collapse: collapse;
