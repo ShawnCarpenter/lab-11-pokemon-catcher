@@ -36,3 +36,4 @@ export function loadGameData() {
     const parsedData = JSON.parse(rawData);
     return parsedData;
 }
+
