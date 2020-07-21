@@ -45,3 +45,29 @@ input+ img {
 h1 {
     font-size: 24pt;
 }
+
+table {
+    border: none;
+    border-collapse: collapse;
+    width: 75%;
+    box-shadow: 3px 3px 9px var(--color5);
+}
+th {
+    border: 1px solid var(--color1);
+    background-color: var(--color5);
+    color: var(--color3);
+}
+td {
+    border: 1px solid var(--color1);
+    padding: 5px;
+    padding-left: 30px;
+}
+tbody tr:nth-child(even) {
+    background-color: lightgray;
+}
+
+.results-page {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
