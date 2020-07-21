@@ -76,3 +76,8 @@ tbody tr:nth-child(even) {
     align-items: center;
     justify-content: space-evenly;
 }
+
+canvas {
+    width: 75%;
+    height: 500px;
+  }

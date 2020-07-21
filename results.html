@@ -18,7 +18,7 @@
     </header>
     <main>
         <section class="results-page">
-        <div>
+        <div> <h1>Caught Pokemon</h1>
             <table>
                 <thead>
                     <th>Name</th>
@@ -29,7 +29,7 @@
 
             </table>
         </div>
-        <div>
+        <div> <h1>The ones that got away</h1>
             <table>
                 <thead>
                     <th>Name</th>
@@ -43,11 +43,14 @@
 
            
         </section>
+        <section>
+            <canvas id="chart"></canvas>
+        </section>
     </main>
     <footer>
         <button id="reset-button">Reset Game</button>
     </footer>
-
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
     <script type="module" src="./app/results.js"></script>
 </body>
 
