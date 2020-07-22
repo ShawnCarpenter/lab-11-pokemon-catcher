@@ -5,7 +5,9 @@ const resetButton = document.getElementById('reset-button');
 const ctx = document.getElementById('chart').getContext('2d');
 const names = mungeData(results, 'name');
 const catchData = mungeData(results, 'caught');
-const encounterData = mungeData(results, 'encountered');
+const encounterData = mungeData(results, 'encounters');
+const colorData_1 = mungeData(results, 'color_1');
+const colorData_2 = mungeData(results, 'color_2');
 
 
 function buildTables() {
@@ -42,9 +44,7 @@ resetButton.addEventListener('click', ()=> {
     window.location = 'index.html';
 });
 
-// const data = [12, 19, 3, 5, 2, 3];
-// const labelColors = ['red', 'blue', 'yellow', 'green', 'purple', 'orange'];
-
+Chart.defaults.global.defaultFontSize = 18;
 const myChart = new Chart(ctx, { //eslint-disable-line
     type: 'bar',
     data: {
@@ -53,12 +53,12 @@ const myChart = new Chart(ctx, { //eslint-disable-line
             {
                 label: 'Times Caught',
                 data: catchData,
-                backgroundColor: 'red'
+                backgroundColor: colorData_1
             },
             {
                 label: 'Times Encountered',
                 data: encounterData,
-                backgroundColor: 'blue'
+                backgroundColor: colorData_2
             }
         ]
     },
@@ -69,6 +69,17 @@ const myChart = new Chart(ctx, { //eslint-disable-line
                     beginAtZero:true
                 }
             }]
+        },
+        legend: {
+            display: false
+        },
+        layout: {
+            padding: {
+                left: 100,
+                right: 100,
+                top: 50,
+                bottom: 50
+            }
         }
     }
 });

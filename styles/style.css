@@ -3,10 +3,14 @@
     font-family: pokemon;
     src: url('../assets/Pokemon\ Solid.ttf');
 }
+@font-face {
+    font-family: pokemon-outline;
+    src: url('../assets/Pokemon\ Hollow.ttf');
+}
 body {
     /* https://coolors.co/generate and click export -> scss to get the colors to copy and paste below*/
-    --color1: hsla(349, 69%, 76%, 1);
-    --color2: hsla(207, 67%, 44%, 1);
+    --color1:#316ab2;
+    --color2: #ffcb05;
     --color3: hsla(200, 61%, 56%, 1);
     --color4: hsla(187, 41%, 94%, 1);
     --color5: hsla(170, 28%, 95%, 1);
@@ -24,11 +28,13 @@ body {
     
     font-family: 'Titillium Web', sans-serif;
     background-color: var(--color5);
+
 }
 header {
     width: 100%;
     text-align: center;
-    padding-bottom: 50px;
+    padding: 50px;
+    background-color: var(--color2);
 }
 
 #game-board {
@@ -42,30 +48,40 @@ input {
     display: none;
 }
 input+ img {
-    border: 2px solid orange;
-    max-width: 275px;
+    border: 5px solid var(--color2);
+    max-width: 250px;
+    border-radius: 10px;
+}
+
+input+ img:hover {
+    border: 5px solid var(--color2);
+    max-width: 250px;
+    cursor: pointer;
+    box-shadow: 3px 3px 9px var(--color1);
 }
 
 h1 {
-    font-family: pokemon;
-    font-size: 24pt;
+    font-family: pokemon-outline;
+    font-size: 52pt;
+    font-weight: bolder;
+    color: var(--color1);
 }
 
 h2 {
     font-family: pokemon;
     font-size: 12pt;
-    /* font-weight: bold; */
-    padding-left: 25px;
+    color: var(--color1);
+    padding: 20px 0px 10px 25px;
 }
 table {
     border: none;
     border-collapse: collapse;
-    box-shadow: 3px 3px 9px var(--color5);
+    box-shadow: 3px 3px 9px var(--color1);
 }
 th {
     border: 1px solid var(--color1);
     background-color: var(--color5);
-    color: var(--color3);
+    color: var(--color1);
     padding: 5px;
 }
 td {
@@ -79,11 +95,20 @@ tbody tr:nth-child(even) {
 
 .results-page {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-evenly;
+    margin: 20px;
 }
 
-#chart {
-    width:500px;
-    height: 500px;
-  }
+button {
+    font-family: pokemon-outline;
+    font-size: 20pt;
+    color: #316ab2;
+    font-weight: bolder;
+    background-color: #ffcb05;
+    padding: 10px;
+    border-radius: 10px;
+}
+button:hover {
+    box-shadow: 3px 3px 9px var(--color1);
+}
