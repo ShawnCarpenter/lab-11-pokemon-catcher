@@ -27,7 +27,9 @@ export function findById(id, array) {
 }
 
 export function saveGameData(arr) {
-    const stringyData = JSON.stringify(arr);
+    const existingData = loadGameData() || [];
+    existingData.push(arr);
+    const stringyData = JSON.stringify(existingData);
     localStorage.setItem('POKEMON', stringyData);
 }
 

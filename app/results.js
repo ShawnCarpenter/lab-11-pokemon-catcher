@@ -1,6 +1,7 @@
 import { loadGameData, findById, mungeData } from './utils.js';
 import pokedex from '../data/pokemon.js';
-const results = loadGameData();
+const allTimeResults = loadGameData();
+const results = allTimeResults[allTimeResults.length - 1];
 const resetButton = document.getElementById('reset-button');
 const ctx = document.getElementById('chart').getContext('2d');
 const names = mungeData(results, 'name');
