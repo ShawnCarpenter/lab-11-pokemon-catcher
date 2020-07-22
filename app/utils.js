@@ -54,17 +54,23 @@ export function buildTables(results) {
     const caughtTable = document.getElementById('caught');
     const encounteredTable = document.getElementById('encountered');
     results.forEach(pokemon => {
+        const url = findById(pokemon._id, pokedex).url_image;
         const name = findById(pokemon._id, pokedex).pokemon;
         const timesCaught = pokemon.caught;
         const timesEncountered = pokemon.encounters;
         const rowEl = document.createElement('tr');
-        const nameEl = document.createElement('td');
+        const pokemonBoxEl = document.createElement('td');
+        const nameEl = document.createElement('div');
+        const imgEl = document.createElement('img');
         const encounteredEl = document.createElement('td');
         
         nameEl.textContent = name;
+        imgEl.src = url;
+        imgEl.alt = `Picture of ${name}`;
+        imgEl.style.width = '50px';
         encounteredEl.textContent = timesEncountered;
-
-        rowEl.append(nameEl, encounteredEl);
+        pokemonBoxEl. append(imgEl, nameEl);
+        rowEl.append(pokemonBoxEl, encounteredEl);
         if (timesCaught > 0) {
             const caughtEl = document.createElement('td');
             caughtEl.textContent = timesCaught;

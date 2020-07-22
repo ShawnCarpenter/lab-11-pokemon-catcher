@@ -4,10 +4,10 @@ const clearDataButton = document.getElementById('clear-data');
 
 
 const allTimeResults = loadGameData();
-let consolidatedResults;
+
 
 if (allTimeResults) {
-    consolidatedResults = consolidateResults(allTimeResults);
+    const consolidatedResults = consolidateResults(allTimeResults);
     buildTables(consolidatedResults);
 } 
 
