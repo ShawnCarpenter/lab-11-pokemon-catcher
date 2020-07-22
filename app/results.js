@@ -44,8 +44,6 @@ resetButton.addEventListener('click', ()=> {
     window.location = 'index.html';
 });
 
-// const data = [12, 19, 3, 5, 2, 3];
-// const labelColors = ['red', 'blue', 'yellow', 'green', 'purple', 'orange'];
 Chart.defaults.global.defaultFontSize = 18;
 const myChart = new Chart(ctx, { //eslint-disable-line
     type: 'bar',
