@@ -55,11 +55,8 @@ export function mungeData(arr, item) {
             case 'color_2' :
                 returnItem = findById(pokemon._id, pokedex).color_2;
                 break;
-            case 'encountered' :
-                returnItem = pokemon.encounters;
-                break;
-            case 'caught' :
-                returnItem = pokemon.caught;
+            default :
+                returnItem = pokemon[item];
                 break;
         }
         returnArray.push(returnItem);
