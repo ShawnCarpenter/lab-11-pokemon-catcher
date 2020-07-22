@@ -43,20 +43,8 @@ export function mungeData(arr, item) {
     const returnArray = [];
     arr.forEach(pokemon => {
         let returnItem = null;
-        switch (item) {
-            case 'name' :
-                returnItem = findById(pokemon._id, pokedex).pokemon;
-                break;
-            case 'color_1' :
-                returnItem = findById(pokemon._id, pokedex).color_1;
-                break;
-            case 'color_2' :
-                returnItem = findById(pokemon._id, pokedex).color_2;
-                break;
-            default :
-                returnItem = pokemon[item];
-                break;
-        }
+        if (item === 'encounters' || item === 'caught') returnItem = pokemon[item];
+        else returnItem = findById(pokemon._id, pokedex)[item];
         returnArray.push(returnItem);
     });
     return returnArray;
@@ -86,4 +74,20 @@ export function buildTables(results) {
             encounteredTable.append(rowEl);
         }
     });
+}
+
+export function consolidateResults(allResults) {
+    const returnResults = [];
+    allResults.forEach(gameResult => {
+        gameResult.forEach(pokemon => {
+            const thisPokemon = findById(pokemon._id, returnResults);
+            if (thisPokemon){
+                thisPokemon.encounters += pokemon.encounters;
+                thisPokemon.caught += pokemon.caught; 
+            } else {
+                returnResults.push(pokemon);
+            }
+        });
+    });
+    return returnResults;
 }

@@ -1,5 +1,5 @@
 import { loadGameData, buildTables, mungeData } from './utils.js';
-// import pokedex from '../data/pokemon.js';
+
 const allTimeResults = loadGameData();
 const results = allTimeResults[allTimeResults.length - 1];
 const resetButton = document.getElementById('reset-button');
@@ -10,9 +10,7 @@ const catchData = mungeData(results, 'caught');
 const encounterData = mungeData(results, 'encounters');
 const colorData_1 = mungeData(results, 'color_1');
 const colorData_2 = mungeData(results, 'color_2');
-
-
-
+console.table(colorData_1);
 
 buildTables(results);
 

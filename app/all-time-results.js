@@ -1,25 +1,28 @@
-import { loadGameData, buildTables, findById } from './utils.js';
-import pokedex from '../data/pokemon.js';
+import { loadGameData, buildTables, consolidateResults } from './utils.js';
+const resetButton = document.getElementById('new-button');
+const clearDataButton = document.getElementById('clear-data');
+
 
 const allTimeResults = loadGameData();
-const consolidatedResults = consolidateResults(allTimeResults);
-// const caughtTable = document.createElement('table');
-// const encounteredTable = document.createElement('table');
+let consolidatedResults;
 
-buildTables(consolidatedResults);
+if (allTimeResults) {
+    consolidatedResults = consolidateResults(allTimeResults);
+    buildTables(consolidatedResults);
+} 
 
-function consolidateResults(allResults) {
-    const returnResults = [];
-    allResults.forEach(gameResult => {
-        gameResult.forEach(pokemon => {
-            const thisPokemon = findById(pokemon._id, returnResults);
-            if (thisPokemon){
-                thisPokemon.encounters += pokemon.encounters;
-                thisPokemon.caught += pokemon.caught; 
-            } else {
-                returnResults.push(pokemon);
-            }
-        });
-    });
-    return returnResults;
-}
+
+
+
+
+resetButton.addEventListener('click', ()=> {
+    window.location = 'index.html';
+});
+
+clearDataButton.addEventListener('click', ()=> {
+    if (confirm('Are you sure you want to clear all previous game data and start a new game?')) {
+        localStorage.clear();
+        window.location = 'index.html';
+    }
+    
+});
