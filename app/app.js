@@ -12,7 +12,7 @@ let encounteredPokemon = [];
 populateGameBoard();
 
 function populateGameBoard() {
-    if (count >= 2) {
+    if (count >= 10) {
         saveGameData(encounteredPokemon);
         window.location = 'results.html';
     }

@@ -40,10 +40,6 @@ export function loadGameData() {
 }
 
 export function mungeData(arr, item) {
-    // const namesArray = [];
-    // const caughtArray = [];
-    // const encounteredArray = [];
-    
     const returnArray = [];
     arr.forEach(pokemon => {
         let returnItem = null;
@@ -64,4 +60,30 @@ export function mungeData(arr, item) {
         returnArray.push(returnItem);
     });
     return returnArray;
+}
+
+export function buildTables(results) {
+    const caughtTable = document.getElementById('caught');
+    const encounteredTable = document.getElementById('encountered');
+    results.forEach(pokemon => {
+        const name = findById(pokemon._id, pokedex).pokemon;
+        const timesCaught = pokemon.caught;
+        const timesEncountered = pokemon.encounters;
+        const rowEl = document.createElement('tr');
+        const nameEl = document.createElement('td');
+        const encounteredEl = document.createElement('td');
+        
+        nameEl.textContent = name;
+        encounteredEl.textContent = timesEncountered;
+
+        rowEl.append(nameEl, encounteredEl);
+        if (timesCaught > 0) {
+            const caughtEl = document.createElement('td');
+            caughtEl.textContent = timesCaught;
+            rowEl.append(caughtEl);
+            caughtTable.append(rowEl);
+        } else {
+            encounteredTable.append(rowEl);
+        }
+    });
 }
