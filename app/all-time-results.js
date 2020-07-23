@@ -21,7 +21,7 @@ resetButton.addEventListener('click', ()=> {
 
 clearDataButton.addEventListener('click', ()=> {
     if (confirm('Are you sure you want to clear all previous game data and start a new game?')) {
-        localStorage.clear();
+        localStorage.removeItem('POKEMON');
         window.location = 'index.html';
     }
     
