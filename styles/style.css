@@ -110,9 +110,9 @@ tbody tr:nth-child(odd) {
 button {
     font-family: pokemon-outline;
     font-size: 20pt;
-    color: #316ab2;
-    font-weight: bolder;
-    background-color: #ffcb05;
+    color: var(--color2);
+    font-weight: bold;
+    background-color: var(--color1);
     padding: 10px;
     border-radius: 10px;
 }

@@ -5,20 +5,15 @@ const ctx = document.getElementById('chart').getContext('2d');
 
 const allTimeResults = loadGameData();
 
-let names;
-let catchData;
-let encounterData;
-let colorData_1;
-let colorData_2;
-if (allTimeResults) {
-    const consolidatedResults = consolidateResults(allTimeResults);
-    buildTables(consolidatedResults);
-    names = mungeData(consolidatedResults, 'pokemon');
-    catchData = mungeData(consolidatedResults, 'caught');
-    encounterData = mungeData(consolidatedResults, 'encounters');
-    colorData_1 = mungeData(consolidatedResults, 'color_1');
-    colorData_2 = mungeData(consolidatedResults, 'color_2');
-} 
+
+
+const consolidatedResults = consolidateResults(allTimeResults);
+buildTables(consolidatedResults);
+const names = mungeData(consolidatedResults, 'pokemon');
+const catchData = mungeData(consolidatedResults, 'caught');
+const encounterData = mungeData(consolidatedResults, 'encounters');
+const colorData_1 = mungeData(consolidatedResults, 'color_1');
+const colorData_2 = mungeData(consolidatedResults, 'color_2');
 
 resetButton.addEventListener('click', ()=> {
     window.location = 'index.html';

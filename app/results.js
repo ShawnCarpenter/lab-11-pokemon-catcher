@@ -12,6 +12,7 @@ const colorData_1 = mungeData(results, 'color_1');
 const colorData_2 = mungeData(results, 'color_2');
 
 
+
 buildTables(results);
 
 
@@ -25,6 +26,7 @@ historyButton.addEventListener('click', ()=> {
 });
 
 Chart.defaults.global.defaultFontSize = 18;
+
 const myChart = new Chart(ctx, { //eslint-disable-line
     type: 'bar',
     data: {
@@ -55,11 +57,12 @@ const myChart = new Chart(ctx, { //eslint-disable-line
         },
         layout: {
             padding: {
-                left: 100,
-                right: 100,
+                left: 50,
+                right: 50,
                 top: 50,
                 bottom: 50
             }
         }
     }
 });
+
