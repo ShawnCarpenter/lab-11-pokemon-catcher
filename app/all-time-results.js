@@ -1,32 +1,33 @@
-import { loadGameData, buildTables, mungeData } from './utils.js';
+import { loadGameData, buildTables, consolidateResults, mungeData } from './utils.js';
+const resetButton = document.getElementById('new-button');
+const clearDataButton = document.getElementById('clear-data');
+const ctx = document.getElementById('chart').getContext('2d');
 
 const allTimeResults = loadGameData();
-const results = allTimeResults[allTimeResults.length - 1];
-const resetButton = document.getElementById('reset-button');
-const historyButton = document.getElementById('history-button');
-const ctx = document.getElementById('chart').getContext('2d');
-const names = mungeData(results, 'pokemon');
-const catchData = mungeData(results, 'caught');
-const encounterData = mungeData(results, 'encounters');
-const colorData_1 = mungeData(results, 'color_1');
-const colorData_2 = mungeData(results, 'color_2');
 
 
 
-buildTables(results);
-
-
+const consolidatedResults = consolidateResults(allTimeResults);
+buildTables(consolidatedResults);
+const names = mungeData(consolidatedResults, 'pokemon');
+const catchData = mungeData(consolidatedResults, 'caught');
+const encounterData = mungeData(consolidatedResults, 'encounters');
+const colorData_1 = mungeData(consolidatedResults, 'color_1');
+const colorData_2 = mungeData(consolidatedResults, 'color_2');
 
 resetButton.addEventListener('click', ()=> {
     window.location = 'index.html';
 });
 
-historyButton.addEventListener('click', ()=> {
-    window.location = 'all-time-results.html';
+clearDataButton.addEventListener('click', ()=> {
+    if (confirm('Are you sure you want to clear all previous game data and start a new game?')) {
+        localStorage.clear();
+        window.location = 'index.html';
+    }
+    
 });
 
 Chart.defaults.global.defaultFontSize = 18;
-
 const myChart = new Chart(ctx, { //eslint-disable-line
     type: 'bar',
     data: {
@@ -57,12 +58,11 @@ const myChart = new Chart(ctx, { //eslint-disable-line
         },
         layout: {
             padding: {
-                left: 50,
-                right: 50,
+                left: 100,
+                right: 100,
                 top: 50,
                 bottom: 50
             }
         }
     }
 });
-

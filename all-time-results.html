@@ -16,13 +16,13 @@
 <body>
     <header>
        <h1>Pokemon catcher</h1>
-       <button id="reset-button">Newt Game</button>
-       <button id="history-button">All Time</button>
+       <button id="new-button">New Game</button>
+       <button id="clear-data">Clear Past Games</button>
     </header>
     <main>
         <section class="results-page">
         <div> <h2>Caught Pokemon</h2>
-            <table>
+            <table id="caught-table">
                 <thead>
                     <th>Name</th>
                     <th>Times Encountered</th>
@@ -32,14 +32,13 @@
 
             </table>
         </div>
-        <div> <h2>The ones that got away</h2>
-            <table>
+        <div id="escaped-div"> <h2>The ones that got away</h2>
+            <table id="escaped-table">
                 <thead>
                     <th>Name</th>
                     <th>Times Encountered</th>
                 </thead>
                 <tbody id="encountered"></tbody>
-                
             </table>
 
         </div> 
@@ -52,7 +51,7 @@
       
     </footer>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
-    <script type="module" src="./app/results.js"></script>
+    <script type="module" src="./app/all-time-results.js"></script>
 </body>
 
 </html>

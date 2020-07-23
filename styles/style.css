@@ -1,18 +1,18 @@
 
 @font-face {
-    font-family: pokemon;
+    font-family: "pokemon";
     src: url('../assets/Pokemon\ Solid.ttf');
 }
 @font-face {
-    font-family: pokemon-outline;
+    font-family: "pokemon-outline";
     src: url('../assets/Pokemon\ Hollow.ttf');
 }
 body {
     /* https://coolors.co/generate and click export -> scss to get the colors to copy and paste below*/
     --color1:#316ab2;
     --color2: #ffcb05;
-    --color3: hsla(200, 61%, 56%, 1);
-    --color4: hsla(187, 41%, 94%, 1);
+    --color3: rgb(125, 189, 221);
+    --color4: #ffe88e;
     --color5: hsla(170, 28%, 95%, 1);
 
     /* --color1: hsla(45, 86%, 83%, 1);
@@ -49,14 +49,14 @@ input {
 }
 input+ img {
     border: 5px solid var(--color2);
-    max-width: 250px;
+    max-width: 97%;
     border-radius: 10px;
 }
 
 input+ img:hover {
     border: 5px solid var(--color2);
-    max-width: 250px;
     cursor: pointer;
+    max-width: 98%;
     box-shadow: 3px 3px 9px var(--color1);
 }
 
@@ -82,15 +82,22 @@ th {
     border: 1px solid var(--color1);
     background-color: var(--color5);
     color: var(--color1);
+    background-color: var(--color2);
+    font-family: "pokemon";
+    font-weight: lighter;
     padding: 5px;
 }
 td {
     border: 1px solid var(--color1);
     padding: 5px;
-    padding-left: 30px;
+    text-align: center;
 }
 tbody tr:nth-child(even) {
-    background-color: lightgray;
+    background-color: var(--color4);
+}
+
+tbody tr:nth-child(odd) {
+    background-color: var(--color3);
 }
 
 .results-page {
@@ -103,12 +110,16 @@ tbody tr:nth-child(even) {
 button {
     font-family: pokemon-outline;
     font-size: 20pt;
-    color: #316ab2;
-    font-weight: bolder;
-    background-color: #ffcb05;
+    color: var(--color2);
+    font-weight: bold;
+    background-color: var(--color1);
     padding: 10px;
     border-radius: 10px;
 }
 button:hover {
     box-shadow: 3px 3px 9px var(--color1);
+}
+
+td {
+    font-size: 19px;
 }
