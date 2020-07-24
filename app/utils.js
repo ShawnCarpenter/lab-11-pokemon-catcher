@@ -97,3 +97,15 @@ export function consolidateResults(allResults) {
     });
     return returnResults;
 }
+export function count(pokemon){
+    const counter = {};
+    for (let i = 0; i < pokemon.length; i++) {
+        const myPoke = pokemon[i];
+        const key = myPoke.pokemon;
+        if (counter[key]) {
+            counter[key]++;
+        } else {
+            counter[key] = 1;
+        }
+    }
+}
